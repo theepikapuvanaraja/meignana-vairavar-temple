@@ -1,0 +1,87 @@
+.events-page {
+  padding: 30px;
+}
+
+.events-page h1 {
+  text-align: center;
+  color: #7a4b00;
+  margin-bottom: 30px;
+}
+
+
+/* Desktop - 4 cards in one row */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+
+.event-card {
+
+  background: #1f2937;
+  color: white;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  min-height: 220px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+
+.event-card h2 {
+  color: #ffd700;
+  font-size: 22px;
+}
+
+
+.event-card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* Mobile - 2 cards in one row */
+@media(max-width:768px){
+
+  .events-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+  }
+
+
+  .events-page {
+
+    padding: 15px;
+
+  }
+
+
+  .event-card {
+
+    padding: 12px;
+
+  }
+
+
+  .event-card h2 {
+
+    font-size: 18px;
+
+  }
+
+
+  .event-card p {
+
+    font-size: 13px;
+
+  }
+
+}
