@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Gallery.css";
-const API = "http://localhost:5000";
+const API = "http://meignana-vairavar-temple-production.up.railway.app";
 
 function Gallery() {
 

@@ -19,7 +19,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/contact", {
+      const res = await fetch("http://meignana-vairavar-temple-production.up.railway.app/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

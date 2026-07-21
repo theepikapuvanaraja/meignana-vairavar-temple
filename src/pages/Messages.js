@@ -4,7 +4,7 @@ function Messages() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/contact")
+    fetch("http://meignana-vairavar-temple-production.up.railway.app/contact")
       .then((res) => res.json())
       .then((data) => setMessages(data));
   }, []);
