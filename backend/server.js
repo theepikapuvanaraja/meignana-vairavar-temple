@@ -9,7 +9,10 @@ const cloudinary = require("./config/cloudinary");
 
 const eventRoutes = require("./routes/eventRoutes");
 const upload = multer({
-  storage: multer.memoryStorage()
+  storage: multer.memoryStorage(),
+   limits: {
+    fileSize: 50 * 1024 * 1024
+  }
 });
 
 const app = express();
