@@ -13,7 +13,7 @@ const upload = multer({
 });
 
 const app = express();
-const Contact = require("./models/Contact");
+const Contact = require("./models/contact");
 const mediaRoutes = require("./routes/mediaRoutes");
 
 // ================= MIDDLEWARE =================
