@@ -17,7 +17,7 @@ function History() {
   const [scale, setScale] = useState(1.2);
 
   useEffect(() => {
-    fetch("http://meignana-vairavar-temple-production.up.railway.app/api/media")
+    fetch("https://meignana-vairavar-temple-production.up.railway.app/api/media")
       .then((res) => res.json())
       .then((res) => {
         setData(

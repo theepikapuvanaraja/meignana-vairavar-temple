@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Admin.css";
 import AdminLogin from "../components/AdminLogin";
 
-const API = "http://meignana-vairavar-temple-production.up.railway.app";
+const API = "https://meignana-vairavar-temple-production.up.railway.app";
 
 
 function Admin() {
@@ -33,7 +33,7 @@ const [eventForm, setEventForm] = useState({
 });
 const deleteContact = async (id) => {
   try {
-    await fetch(`http://meignana-vairavar-temple-production.up.railway.app/contact/${id}`, {
+    await fetch(`https://meignana-vairavar-temple-production.up.railway.app/contact/${id}`, {
       method: "DELETE"
     });
 
@@ -43,7 +43,7 @@ const deleteContact = async (id) => {
   }
 };
 const markAsRead = async (id) => {
-  await fetch(`http://meignana-vairavar-temple-production.up.railway.app/contact/read/${id}`, {
+  await fetch(`https://meignana-vairavar-temple-production.up.railway.app/contact/read/${id}`, {
     method: "PUT"
   });
 
@@ -79,7 +79,7 @@ const markAsRead = async (id) => {
   };
   const fetchContacts = async () => {
   try {
-    const res = await fetch("http://meignana-vairavar-temple-production.up.railway.app/contact");
+    const res = await fetch("https://meignana-vairavar-temple-production.up.railway.app/contact");
     const data = await res.json();
     setContacts(data);
   } catch (err) {

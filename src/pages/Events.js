@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Events.css";
 
-const API = "http://meignana-vairavar-temple-production.up.railway.app";
+const API = "https://meignana-vairavar-temple-production.up.railway.app";
 
 function Events() {
 
