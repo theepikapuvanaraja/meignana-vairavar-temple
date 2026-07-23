@@ -18,6 +18,7 @@ const upload = multer({
 const app = express();
 const Contact = require("./models/contact");
 const mediaRoutes = require("./routes/mediaRoutes");
+const Media = require("./models/Media");
 
 // ================= MIDDLEWARE =================
 app.use(cors());
