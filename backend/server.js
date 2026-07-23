@@ -59,7 +59,7 @@ res.json({
     console.log(err);
 
     res.status(500).json({
-      error:"Upload failed"
+      error:err.message
     });
 
   }
