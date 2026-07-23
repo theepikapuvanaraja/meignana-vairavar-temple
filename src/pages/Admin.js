@@ -322,6 +322,11 @@ return <AdminLogin setAuth={setAuth}/>
                       <img 
                         src={item.url} 
                         alt={item.title}
+                        style={{
+                        width: "300px",
+                        height: "200px",
+                        objectFit: "cover"
+                      }}
                       />
                     )}
                 {item.type === "video" && (
