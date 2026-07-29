@@ -155,7 +155,6 @@ app.put("/contact/read/:id", async (req, res) => {
 });
 const PORT = process.env.PORT || 5000;
 // Serve React frontend
-const frontendPath = path.join(__dirname, "../frontend/build");
 
 const frontendPath = path.join(__dirname, "../build");
 
