@@ -1,18 +1,16 @@
 
 require("dotenv").config();
+
 const express = require("express");
+const mongoose = require("mongoose");
+
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
-const mongoose = require("mongoose");
 const cloudinary = require("./config/cloudinary");
-
 const eventRoutes = require("./routes/eventRoutes");
 const upload = multer({
   storage: multer.memoryStorage(),
-   limits: {
-    fileSize: 50 * 1024 * 1024
-  }
 });
 
 const app = express();
@@ -66,10 +64,9 @@ res.json({
 
 });
 // ================= MONGODB =================
-mongoose
-  .connect("mongodb://meygnanavairavartemple_db_user:xAgbZDaaSDYX86wf@ac-umb24wy-shard-00-00.mgsnos1.mongodb.net:27017,ac-umb24wy-shard-00-01.mgsnos1.mongodb.net:27017,ac-umb24wy-shard-00-02.mgsnos1.mongodb.net:27017/?ssl=true&replicaSet=atlas-4zwc1o-shard-0&authSource=admin&appName=templeCluster0")
-  .then(() => console.log("MongoDB Atlas Connected"))
-  .catch((err) => console.log(err));
+const connectDB = require("./config/db");
+
+connectDB();
 
 // ================= ROUTES =================
 app.use("/api/events", eventRoutes);
@@ -103,11 +100,7 @@ app.put("/api/media/like/:id", async (req, res) => {
 });
 
 // ================= SERVER =================
-const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
- console.log(`Server running on ${PORT}`);
-});
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -159,4 +152,9 @@ app.put("/contact/read/:id", async (req, res) => {
   } catch (err) {
     res.json({ success: false });
   }
+});
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+ console.log(`Server running on ${PORT}`);
 });

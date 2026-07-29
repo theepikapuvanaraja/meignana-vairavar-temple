@@ -56,11 +56,13 @@ const markAsRead = async (id) => {
 
       const res = await fetch(`${API}/api/media`);
       const data = await res.json();
-
-      setMedia(data);
+        if (!res.ok) {
+      throw new Error(data.error || "Media fetch failed");
+    }
+      setMedia(Array.isArray(data) ? data : []);
 
     } catch (err) {
-      console.log(err);
+       console.log("Media Fetch Error:", err);
       setMessage("❌ Media Fetch Failed");
     } finally {
       setLoading(false);
@@ -68,22 +70,37 @@ const markAsRead = async (id) => {
   };
 
   // ================= EVENTS FETCH =================
-  const fetchEvents = async () => {
-    try {
-      const res = await fetch(`${API}/api/events`);
-      const data = await res.json();
-      setEvents(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  const fetchContacts = async () => {
+ const fetchEvents = async () => {
   try {
-    const res = await fetch("https://meignana-vairavar-temple-production.up.railway.app/contact");
+    const res = await fetch(`${API}/api/events`);
     const data = await res.json();
-    setContacts(data);
+
+    if (!res.ok) {
+      throw new Error(data.error || "Events fetch failed");
+    }
+
+    setEvents(Array.isArray(data) ? data : []);
   } catch (err) {
-    console.log(err);
+    console.log("Events Fetch Error:", err);
+    setEvents([]);
+  }
+};
+const fetchContacts = async () => {
+  try {
+    const res = await fetch(
+      "https://meignana-vairavar-temple-production.up.railway.app/contact"
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Contacts fetch failed");
+    }
+
+    setContacts(Array.isArray(data) ? data : []);
+  } catch (err) {
+    console.log("Contacts Fetch Error:", err);
+    setContacts([]);
   }
 };
 
@@ -94,31 +111,42 @@ const markAsRead = async (id) => {
   }, []);
 
   // ================= MEDIA UPLOAD =================
-  const handleUpload = async (e) => {
-    try {
-      const file = e.target.files[0];
+ const handleUpload = async (e) => {
+  try {
+    const file = e.target.files[0];
 
-      const formData = new FormData();
-      formData.append("file", file);
+    if (!file) return;
 
-      const res = await fetch(`${API}/upload`, {
-        method: "POST",
-        body: formData
-      });
+    setMessage("⏳ Uploading...");
 
-      const data = await res.json();
+    const formData = new FormData();
+    formData.append("file", file);
 
-      console.log("UPLOAD URL:", data.url);
+    const res = await fetch(`${API}/upload`, {
+      method: "POST",
+      body: formData
+    });
 
- setForm(prev => ({
+    const data = await res.json();
+
+    console.log("UPLOAD RESPONSE:", data);
+
+    if (!res.ok || !data.url) {
+      throw new Error(data.error || "Upload failed");
+    }
+
+    setForm(prev => ({
       ...prev,
       url: data.url
     }));
 
-    } catch (err) {
-      setMessage("❌ Upload Failed");
-    }
-  };
+    setMessage("✅ File Uploaded Successfully");
+
+  } catch (err) {
+    console.error("UPLOAD ERROR:", err);
+    setMessage(`❌ Upload Failed: ${err.message}`);
+  }
+};
 
   // ================= ADD MEDIA =================
  const addMedia = async () => {
@@ -315,7 +343,7 @@ return <AdminLogin setAuth={setAuth}/>
         {loading ? (
           <p>Loading...</p>
         ) : (
-          media.map((item) => (
+          Array.isArray(media) && media.map((item) => (
             <div className="media-card" key={item._id}>
 
                  {item.type === "image" && item.url && (
@@ -412,7 +440,7 @@ return <AdminLogin setAuth={setAuth}/>
 
         <h2>📅 Temple Events</h2>
 
-        {events.map((event) => (
+        {Array.isArray(events) && events.map((event) => (
           <div className="media-card" key={event._id}>
 
             <img src={event.image} alt="" />
@@ -441,7 +469,7 @@ return <AdminLogin setAuth={setAuth}/>
 
   <h1>📩 Contact Messages</h1>
 
-  {contacts.map((msg) => (
+  {Array.isArray(contacts) && contacts.map((msg) => (
     <div className="media-card" key={msg._id}>
 
       <div className="media-content">
