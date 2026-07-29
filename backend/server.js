@@ -154,6 +154,14 @@ app.put("/contact/read/:id", async (req, res) => {
   }
 });
 const PORT = process.env.PORT || 5000;
+// Serve React frontend
+const frontendPath = path.join(__dirname, "../frontend/build");
+
+app.use(express.static(frontendPath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 
 app.listen(PORT, () => {
  console.log(`Server running on ${PORT}`);
