@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 
 const cors = require("cors");
 const multer = require("multer");
-const path = require("path");
 const cloudinary = require("./config/cloudinary");
 const eventRoutes = require("./routes/eventRoutes");
 const upload = multer({
@@ -155,14 +154,7 @@ app.put("/contact/read/:id", async (req, res) => {
 });
 const PORT = process.env.PORT || 5000;
 
-// Serve React frontend
-const frontendPath = path.join(__dirname, "../build");
 
-app.use(express.static(frontendPath));
-
-app.use((req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
 
 app.listen(PORT, () => {
  console.log(`Server running on ${PORT}`);
