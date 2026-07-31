@@ -65,15 +65,17 @@
 
 
   .event-card {
-
-    padding: 12px;
-
-  }
+  padding: 12px;
+  background: #fff8dc;
+  color: #333;
+  border: 1px solid #d4af37;
+}
 
 
   .event-card h2 {
 
     font-size: 18px;
+    
 
   }
 
@@ -81,6 +83,7 @@
   .event-card p {
 
     font-size: 13px;
+    
 
   }
 

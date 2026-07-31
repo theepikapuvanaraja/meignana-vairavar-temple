@@ -166,15 +166,17 @@ function History() {
           </div>
 
           {/* PDF BOX */}
-          <div style={{
-            background: "#fff",
-            padding: "20px",
-            borderRadius: "10px",
-            display: "flex",
-            justifyContent: "center"
-          }}>
-            <div style={{ maxWidth: "900px" }}>
-
+                    <div
+            style={{
+              background: "#fff",
+              padding: "20px",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "center",
+              overflowX: "auto"
+            }}
+>
+            <div style={{ width: "100%", maxWidth: "900px" }}>
               <Document
                 file={selectedPdf.url}
                 onLoadSuccess={onDocumentLoadSuccess}
@@ -183,6 +185,7 @@ function History() {
                   <Page
                     key={i}
                     pageNumber={i + 1}
+                     width={window.innerWidth > 768 ? 800 : window.innerWidth - 40}
                     scale={scale}
                   />
                 ))}

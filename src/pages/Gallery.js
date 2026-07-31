@@ -186,74 +186,7 @@ const downloadFile = async (url, filename) => {
 
       </section>
 
-      {/* VIDEO SECTION */}
-      <section>
-
-        <h2 className="section-title">
-           Temple Videos
-        </h2>
-
-        <div className="gallery-grid">
-
-          {videos.map((item) => (
-
-            <div
-              className="gallery-card"
-              key={item._id}
-            >
-
-              <video
-                controls
-                className="gallery-video"
-              >
-                <source src={item.url} />
-              </video>
-
-              <div className="gallery-content">
-
-                <h3>{item.title}</h3>
-
-                <p>{item.description}</p>
-
-                <div className="button-group">
-
-                   <button
-                    className="like-btn"
-                    disabled={localStorage.getItem(`liked_${item._id}`)}
-                    onClick={() => likeMedia(item._id)}
-                  >
-                    ❤️ {item.likes || 0}
-                  </button>
-
-<button
-  className="download-btn"
-  onClick={() => downloadFile(item.url, item.title)}
->
-  ⬇ Download
-</button>
-
-                  <button
-                    className="share-btn"
-                    onClick={() =>
-                      window.open(
-                        `https://wa.me/?text=${item.title} ${item.url}`
-                      )
-                    }
-                  >
-                    📤 Share
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
+      
 
       {/* AUDIO SECTION */}
       <section>
@@ -306,6 +239,74 @@ const downloadFile = async (url, filename) => {
                 >
                   📤 Share
                 </button>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+      {/* VIDEO SECTION */}
+      <section>
+
+        <h2 className="section-title">
+           Temple Videos
+        </h2>
+
+        <div className="gallery-grid">
+
+          {videos.map((item) => (
+
+            <div
+              className="gallery-card"
+              key={item._id}
+            >
+
+              <video
+                controls
+                className="gallery-video"
+              >
+                <source src={item.url} />
+              </video>
+
+              <div className="gallery-content">
+
+                <h3>{item.title}</h3>
+
+                <p>{item.description}</p>
+
+                <div className="button-group">
+
+                   <button
+                    className="like-btn"
+                    disabled={localStorage.getItem(`liked_${item._id}`)}
+                    onClick={() => likeMedia(item._id)}
+                  >
+                    ❤️ {item.likes || 0}
+                  </button>
+
+<button
+  className="download-btn"
+  onClick={() => downloadFile(item.url, item.title)}
+>
+  Download
+</button>
+
+                  <button
+                    className="share-btn"
+                    onClick={() =>
+                      window.open(
+                        `https://wa.me/?text=${item.title} ${item.url}`
+                      )
+                    }
+                  >
+                     Share
+                  </button>
+
+                </div>
 
               </div>
 

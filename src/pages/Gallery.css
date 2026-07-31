@@ -1,6 +1,6 @@
 .gallery-page {
   min-height: 100vh;
-  background: #fafafa;
+  background: #fafafa !important;
   padding: 30px;
   font-family: Arial, sans-serif;
 }
@@ -221,6 +221,13 @@ margin-top:15px;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+  .main-title {
+  font-size: 26px;
+}
+
+.section-title {
+  font-size: 22px;
+}
 
   .gallery-image {
     width: 100%;
@@ -239,6 +246,16 @@ margin-top:15px;
   .gallery-content p {
     font-size: 13px;
   }
+  .audio-card {
+  background: #fff8dc;
+  padding: 15px;
+  border-radius: 15px;
+}
+  .gallery-video {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
 
   /* Buttons ஒரே row-ல் */
   .button-group {
