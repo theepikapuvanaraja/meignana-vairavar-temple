@@ -30,7 +30,7 @@ function Footer() {
             <i className="fas fa-envelope"></i> meygnanavairavar@gmail.com
           </p>
           <p>
-            <i className="fas fa-phone"></i> +94 77 123 4567
+            <i className="fas fa-phone"></i> +94 776998155
           </p> 
           <div className="social-icons">
             <a

@@ -76,45 +76,45 @@ function Home() {
 
         <div className="about-grid">
 
-          
-  {/* 1 */}
-  <div className="about-card">
-    <h3>நம்பிக்கை</h3>
-    <p>பக்தர்களை பாதுகாக்கும் தெய்வமாக வைரவர் பெருமான் நம்பப்படுகிறார்.</p>
-  </div>
+                    
+            {/* 1 */}
+            <div className="about-card">
+              <h3>நம்பிக்கை</h3>
+              <p>பக்தர்களை பாதுகாக்கும் தெய்வமாக வைரவர் பெருமான் நம்பப்படுகிறார்.</p>
+            </div>
 
-  {/* 2 */}
-  <div className="about-card">
-    <h3> பூஜைகள்</h3>
-    <p>தினசரி பூஜைகள், விளக்கு ஏற்றுதல் மற்றும் சிறப்பு வழிபாடுகள் நடைபெறுகின்றன.</p>
-  </div>
+            {/* 2 */}
+            <div className="about-card">
+              <h3> பூஜைகள்</h3>
+              <p>தினசரி பூஜைகள், விளக்கு ஏற்றுதல் மற்றும் சிறப்பு வழிபாடுகள் நடைபெறுகின்றன.</p>
+            </div>
 
-  {/* 3 */}
-  <div className="about-card">
-    <h3> கோவில் நேரம்</h3>
-    <p>
-      காலை: 5:00 AM – 6:00 AM<br />
-      மாலை: 4:30 PM – 6:30 PM
-    </p>
-  </div>
+            {/* 3 */}
+            <div className="about-card">
+              <h3> கோவில் நேரம்</h3>
+              <p>
+                காலை: 5:00 AM – 6:00 AM<br />
+                மாலை: 4:30 PM – 6:30 PM
+              </p>
+            </div>
 
-  {/* 4 */}
-  <div className="about-card">
-    <h3> விழாக்கள்</h3>
-    <p>ஆடி மாத பூஜை, தை பூசம் மற்றும் மாதந்தோறும் சிறப்பு பூஜைகள் நடைபெறுகின்றன.</p>
-  </div>
+            {/* 4 */}
+            <div className="about-card">
+              <h3> விழாக்கள்</h3>
+              <p>ஆடி மாத பூஜை, தை பூசம் மற்றும் மாதந்தோறும் சிறப்பு பூஜைகள் நடைபெறுகின்றன.</p>
+            </div>
 
-  {/* 5 */}
-  <div className="about-card">
-    <h3> தெய்வ சக்தி</h3>
-    <p>பக்தர்களின் பயம், தடைகள் மற்றும் தீய சக்திகளை நீக்கும் சக்தி கொண்ட தெய்வம்.</p>
-  </div>
+            {/* 5 */}
+            <div className="about-card">
+              <h3> தெய்வ சக்தி</h3>
+              <p>பக்தர்களின் பயம், தடைகள் மற்றும் தீய சக்திகளை நீக்கும் சக்தி கொண்ட தெய்வம்.</p>
+            </div>
 
-  {/* 6 */}
-  <div className="about-card">
-    <h3> ஆசீர்வாதம்</h3>
-    <p>வைரவர் பெருமான் பக்தர்களுக்கு அமைதி, ஆரோக்கியம் மற்றும் செழிப்பு அருள்கிறார்.</p>
-  </div>
+            {/* 6 */}
+            <div className="about-card">
+              <h3> ஆசீர்வாதம்</h3>
+              <p>வைரவர் பெருமான் பக்தர்களுக்கு அமைதி, ஆரோக்கியம் மற்றும் செழிப்பு அருள்கிறார்.</p>
+            </div>
 
          
         </div>
@@ -122,29 +122,50 @@ function Home() {
       </div>
 
       {/* SECTION TITLE */}
-      <h2 className="section-title">
-        Explore Temple Content
-      </h2>
+      {/* EXPLORE TEMPLE CONTENT */}
+<h2 className="section-title">
+  Explore Temple Content
+</h2>
 
-      {/* 4 GRID */}
-      <div className="grid">
+<div className="grid">
 
-        <div className="card" onClick={() => nav("/gallery")}>
-          <h3>Media</h3>
-          <p>Temple photos and videos and audios collection</p>
-        </div>
+  {/* MEDIA */}
+  <div className="card" onClick={() => nav("/gallery")}>
+    <div className="card-icon">
+      <i className="fas fa-camera"></i>
+    </div>
 
-        <div className="card" onClick={() => nav("/events")}>
-          <h3>Events</h3>
-          <p>Temple festivals & functions</p>
-        </div>
+    <div className="card-content">
+      <h3>Media</h3>
+      <p>Temple photos, videos & audios</p>
+    </div>
+  </div>
 
-        <div className="card" onClick={() => nav("/history")}>
-          <h3>PDF</h3>
-          <p>Temple documents & history</p>
-        </div>
+  {/* EVENTS */}
+  <div className="card" onClick={() => nav("/events")}>
+    <div className="card-icon">
+      <i className="fas fa-calendar-alt"></i>
+    </div>
 
-      </div>
+    <div className="card-content">
+      <h3>Events</h3>
+      <p>Temple festivals & functions</p>
+    </div>
+  </div>
+
+  {/* PDF */}
+  <div className="card" onClick={() => nav("/history")}>
+    <div className="card-icon">
+      <i className="fas fa-file-pdf"></i>
+    </div>
+
+    <div className="card-content">
+      <h3>PDF</h3>
+      <p>Temple documents & history</p>
+    </div>
+  </div>
+
+</div>
 
     </div>
   );
