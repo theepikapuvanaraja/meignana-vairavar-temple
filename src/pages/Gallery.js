@@ -161,7 +161,7 @@ const downloadFile = async (url, filename) => {
   className="download-btn"
   onClick={() => downloadFile(item.url, item.title)}
 >
-  ⬇ Download
+   Download
 </button>
                   <button
                     className="share-btn"
@@ -171,7 +171,7 @@ const downloadFile = async (url, filename) => {
                       )
                     }
                   >
-                    📤 Share
+                     Share
                   </button>
 
                 </div>
